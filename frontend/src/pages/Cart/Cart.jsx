@@ -53,12 +53,12 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Cargo por envío</p>
-              <p>${5}</p>
+              <p>${getTotalCartAmount()===0?0:2}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${getTotalCartAmount()+5}</b>
+              <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+5}</b>
             </div>
           </div>
           <button onClick={()=>navigate('/order')}>PROCEDER CON LA COMPRA</button>

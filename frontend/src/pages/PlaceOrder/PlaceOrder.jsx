@@ -27,7 +27,7 @@ const PlaceOrder = () => {
         </div>
         <input type="text" placeholder='Teléfono' />
       </div>
-      
+
       <div className="place-order-right">
         <div className="cart-total">
           <h2>Total del carrito</h2>
@@ -39,12 +39,12 @@ const PlaceOrder = () => {
             <hr />
             <div className="cart-total-details">
               <p>Cargo por envío</p>
-              <p>${5}</p>
+              <p>${getTotalCartAmount()===0?0:5}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${getTotalCartAmount()+5}</b>
+              <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+5}</b>
             </div>
           </div>
           <button>PROCEDER AL PAGO</button>
