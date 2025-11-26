@@ -21,7 +21,7 @@ const Navbar = () => {
           <img src={assets.basket_icon} alt="" />
           <div className="dot"></div>
         </div>
-        <button>Iniciar Sesión</button>
+        <button>Registrarse</button>
       </div>
     </div>
   )
