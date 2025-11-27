@@ -15,6 +15,15 @@
   cursor: pointer;
 }
 
+.add-img-upload .file-input {
+  position: relative;
+  top: -35px;
+  right: -40px;
+  margin-bottom: -35px;
+  width: 80px;
+  z-index: -1;
+}
+
 .add-product-name, .add-product-description {
   width: max(40%, 280px);
 }
