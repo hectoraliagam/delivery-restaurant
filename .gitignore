@@ -1,2 +1,6 @@
 *admin_assets/
 *node_modules/
+
+.env
+backend/config/db.js
+backend/uploads
