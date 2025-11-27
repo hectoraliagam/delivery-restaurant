@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 
 const LoginPopup = ({ setShowLogin }) => {
 
-  const [currState, setCurrState] = useState("Inicia sesión")
+    const [currState, setCurrState] = useState("Inicia sesión");
+    const [data, setData] = useState({
+      name: "",
+      email: "",
+      password: ""
+    });
+
+    const onChangeHandler = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+      setData(data => ({ ...data, [name]: value }));
+    }
 
   return (
     <div className='login-popup'>
@@ -14,9 +25,9 @@ const LoginPopup = ({ setShowLogin }) => {
           <img onClick={()=>setShowLogin(false)} src={assets.cross_icon} alt="" />
         </div>
         <div className="login-popup-inputs">
-          {currState==="Inicia sesión"?<></>:<input type="text" placeholder='Tu nombre' required />}
-          <input type="email" placeholder='Correo electrónico' required />
-          <input type="password" placeholder='Contraseña' required />
+          {currState==="Inicia sesión"?<></>:<input name='name' onChange={onChangeHandler} value={data.name} type="text" placeholder='Tu nombre' required />}
+          <input name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Correo electrónico' required />
+          <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Contraseña' required />
         </div>
         <button>{currState==="Regístrate"?"Crea una cuenta":"Inicia sesión"}</button>
         <div className="login-popup-condition">

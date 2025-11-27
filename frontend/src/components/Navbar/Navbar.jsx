@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
@@ -6,9 +6,9 @@ import { StoreContext } from '../../context/StoreContext';
 
 const Navbar = ({ setShowLogin }) => {
 
-  const [menu, setMenu] = useState("home");
+    const [menu, setMenu] = useState("home");
 
-  const { getTotalCartAmount } = useContext(StoreContext);
+    const { getTotalCartAmount } = useContext(StoreContext);
 
   return (
     <div className="navbar">
