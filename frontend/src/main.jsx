@@ -1,13 +1,13 @@
 // npm create vite@latest (react & js)
 // frontend / npm install
-// frontend / npm install react-router-dom
+// frontend / npm install react-router-dom axios
 // frontend / npm run dev
 
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { BrowserRouter } from 'react-router-dom'
-import StoreContextProvider from './context/StoreContext.jsx'
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import StoreContextProvider from './context/StoreContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -15,4 +15,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <App />
     </StoreContextProvider>
   </BrowserRouter>
-)
+);

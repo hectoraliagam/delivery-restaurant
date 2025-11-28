@@ -1,7 +1,7 @@
-import { useContext } from 'react'
-import './Cart.css'
-import { StoreContext } from '../../context/StoreContext'
+import './Cart.css';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { StoreContext } from '../../context/StoreContext';
 
 const Cart = () => {
 
@@ -23,21 +23,21 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item)=>{
-          if (cartItems[item._id]>0) {
+        { food_list.map((item) => {
+          if (cartItems[item._id] > 0) {
             return (
               <div>
                 <div className="cart-items-title cart-items-item">
-                  <img src={item.image} alt="" />
-                  <p>{item.name}</p>
-                  <p>${item.price}</p>
-                  <p>{cartItems[item._id]}</p>
-                  <p>${item.price*cartItems[item._id]}</p>
-                  <p onClick={()=>removeFromCart(item._id)} className='cross'>x</p>
+                  <img src={ item.image } alt="" />
+                  <p>{ item.name }</p>
+                  <p>${ item.price }</p>
+                  <p>{ cartItems[item._id] }</p>
+                  <p>${ item.price * cartItems[item._id] }</p>
+                  <p onClick={ () => removeFromCart(item._id) } className='cross'>x</p>
                 </div>
                 <hr />
               </div>
-            )
+            );
           }
         })}
       </div>
@@ -48,20 +48,20 @@ const Cart = () => {
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>${getTotalCartAmount()}</p>
+              <p>${ getTotalCartAmount() }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <p>Cargo por envío</p>
-              <p>${getTotalCartAmount()===0?0:2}</p>
+              <p>${ getTotalCartAmount()===0 ? 0 : 2 }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+5}</b>
+              <b>${ getTotalCartAmount()===0 ? 0 : getTotalCartAmount() + 5 }</b>
             </div>
           </div>
-          <button onClick={()=>navigate('/order')}>PROCEDER CON LA COMPRA</button>
+          <button onClick={ () => navigate('/order') }>PROCEDER CON LA COMPRA</button>
         </div>
         <div className="cart-promocode">
           <div>
@@ -75,7 +75,7 @@ const Cart = () => {
       </div>
 
     </div>
-  )
+  );
 }
 
-export default Cart
+export default Cart;
