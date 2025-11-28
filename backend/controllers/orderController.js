@@ -1,10 +1,55 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
-import stripe from "stripe";
+import { MercadoPagoConfig, Preference } from "mercadopago";
+
+const client = new MercadoPagoConfig({
+  accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN
+});
 
 // placing user order for frontend
 const placeOrder = async (req, res) => {
 
+  const frontend_url = "http://localhost:5173";
+
+  try {
+    const newOrder = new orderModel({
+      userId: req.body.userId,
+      items: req.body.items,
+      amount: req.body.amount,
+      address: req.body.address
+    });
+
+    await newOrder.save();
+    await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
+
+    const preference = new Preference(client);
+    
+    const response = await preference.create({
+      body: {
+        items: req.body.items.map((item) => ({
+          title: item.name,
+          quantity: item.quantity,
+          unit_price: item.price,
+          currency_id: "PEN"
+        })),
+
+        back_urls: {
+          success: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
+          failure: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
+          pending: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`
+        },
+        
+        auto_return: "approved",
+        external_reference: String(newOrder._id)
+      }
+    });
+
+    res.json({ success: true, url: response.init_point });
+
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
 }
 
 export { placeOrder }
