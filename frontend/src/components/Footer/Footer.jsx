@@ -1,17 +1,17 @@
-import './Footer.css'
-import { assets } from '../../assets/assets'
+import './Footer.css';
+import { assets } from '../../assets/assets';
 
 const Footer = () => {
   return (
     <div className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.logo} alt="" />
+          <img src={ assets.logo } alt="" />
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore consectetur iste libero accusantium modi ut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam iure asperiores laboriosam harum totam voluptas.</p>
           <div className="footer-social-icons">
-            <img src={assets.facebook_icon} alt="" />
-            <img src={assets.twitter_icon} alt="" />
-            <img src={assets.linkedin_icon} alt="" />
+            <img src={ assets.facebook_icon } alt="" />
+            <img src={ assets.twitter_icon } alt="" />
+            <img src={ assets.linkedin_icon } alt="" />
           </div>
         </div>
         <div className="footer-content-center">
@@ -34,7 +34,7 @@ const Footer = () => {
       <hr />
       <p className="footer-copyright">Copyright 2025 © Restaurante.com — Todos los derechos reservados.</p>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

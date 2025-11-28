@@ -3,9 +3,9 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 
-const Cart = () => {
+const Cart = ({ fee }) => {
 
-    const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+    const { cartItems, foodList, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
 
     const navigate = useNavigate();
 
@@ -23,12 +23,12 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        { food_list.map((item) => {
+        { foodList.map((item) => {
           if (cartItems[item._id] > 0) {
             return (
               <div>
                 <div className="cart-items-title cart-items-item">
-                  <img src={ item.image } alt="" />
+                  <img src={ url + "/images/" + item.image } alt="" />
                   <p>{ item.name }</p>
                   <p>${ item.price }</p>
                   <p>{ cartItems[item._id] }</p>
@@ -53,12 +53,12 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Cargo por envío</p>
-              <p>${ getTotalCartAmount()===0 ? 0 : 2 }</p>
+              <p>${ getTotalCartAmount()===0 ? 0 : fee }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${ getTotalCartAmount()===0 ? 0 : getTotalCartAmount() + 5 }</b>
+              <b>${ getTotalCartAmount()===0 ? 0 : getTotalCartAmount() + fee }</b>
             </div>
           </div>
           <button onClick={ () => navigate('/order') }>PROCEDER CON LA COMPRA</button>

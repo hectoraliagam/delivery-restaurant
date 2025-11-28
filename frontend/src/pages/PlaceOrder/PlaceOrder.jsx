@@ -2,7 +2,7 @@ import './PlaceOrder.css';
 import { useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 
-const PlaceOrder = () => {
+const PlaceOrder = ({ fee }) => {
 
     const { getTotalCartAmount } = useContext(StoreContext);
 
@@ -39,12 +39,12 @@ const PlaceOrder = () => {
             <hr />
             <div className="cart-total-details">
               <p>Cargo por envío</p>
-              <p>${ getTotalCartAmount()===0 ? 0 : 5 }</p>
+              <p>${ getTotalCartAmount()===0 ? 0 : fee }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${ getTotalCartAmount()===0 ? 0 : getTotalCartAmount() + 5 }</b>
+              <b>${ getTotalCartAmount()===0 ? 0 : getTotalCartAmount() + fee }</b>
             </div>
           </div>
           <button>PROCEDER AL PAGO</button>

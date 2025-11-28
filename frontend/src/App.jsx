@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer';
 const App = () => {
 
     const [showLogin, setShowLogin] = useState(false);
+    const fee = 7;
 
   return (
     <>
@@ -17,9 +18,9 @@ const App = () => {
       <div className="app">
         <Navbar setShowLogin={ setShowLogin } />
         <Routes>
-          <Route path='/' element={ <Home/> } />
-          <Route path='/cart' element={ <Cart/> } />
-          <Route path='/order' element={ <PlaceOrder/> } />
+          <Route path='/' element={ <Home /> } />
+          <Route path='/cart' element={ <Cart fee={ fee } /> } />
+          <Route path='/order' element={ <PlaceOrder fee={ fee } /> } />
         </Routes>
       </div>
       <Footer />

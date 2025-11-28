@@ -1,4 +1,4 @@
-import './Header.css'
+import './Header.css';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <button>Ver menú</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
