@@ -6,12 +6,12 @@ const authMiddleware = async (req, res, next) => {
     return res.json({ success: false, message: "Inicio de sesión no autorizado" })
   }
   try {
-    const token_decode = jwt.verify(token, process.env.JWT_SECRET);
-    req.body.userId = token_decode.id;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.userId = decoded.id;
     next();
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: "Error" })
+    res.json({ success: false, message: "Error" });
   }
 }
 
