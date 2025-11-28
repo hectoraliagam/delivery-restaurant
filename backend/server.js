@@ -2,12 +2,13 @@
 // backend / npm install express mongoose jsonwebtoken bcrypt cors dotenv body-parser multer stripe validator nodemon
 // backend / npm run server (nodemon server.js)
 
-import express from "express";
+import 'dotenv/config'
 import cors from "cors";
+import express from "express";
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
-import 'dotenv/config'
+import cartRouter from './routes/cartRoute.js';
 
 // app config
 const app = express();
@@ -24,6 +25,7 @@ connectDB();
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");
