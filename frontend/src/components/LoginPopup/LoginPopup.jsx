@@ -25,7 +25,7 @@ const LoginPopup = ({ setShowLogin }) => {
       event.preventDefault();
 
       let newUrl = url;
-      if (currState==="Inicia sesión") {
+      if (currState === "Inicia sesión") {
         newUrl += "/api/user/login";
       } else {
         newUrl += "/api/user/register";
@@ -50,17 +50,17 @@ const LoginPopup = ({ setShowLogin }) => {
           <img onClick={ () => setShowLogin(false) } src={ assets.cross_icon } alt="" />
         </div>
         <div className="login-popup-inputs">
-          { currState==="Inicia sesión" ? <></> : <input name='name' onChange={ onChangeHandler } value={ data.name } type="text" placeholder='Tu nombre' required />}
+          { currState === "Inicia sesión" ? <></> : <input name='name' onChange={ onChangeHandler } value={ data.name } type="text" placeholder='Tu nombre' required /> }
           <input name='email' onChange={ onChangeHandler } value={ data.email } type="email" placeholder='Correo electrónico' required />
           <input name='password' onChange={ onChangeHandler } value={ data.password } type="password" placeholder='Contraseña' required />
         </div>
-        <button type='submit'>{ currState==="Regístrate" ? "Crea una cuenta" : "Inicia sesión" }</button>
+        <button type='submit'>{ currState === "Regístrate" ? "Crea una cuenta" : "Inicia sesión" }</button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
           <p>Al continuar, acepto los términos de uso y la política de privacidad.</p>
         </div>
         {
-          currState==="Inicia sesión"
+          currState === "Inicia sesión"
           ? <p>¿Desea crear una nueva cuenta? <span onClick={ () => setCurrState("Regístrate") }>Haga clic aquí</span></p>
           : <p>¿Ya tienes una cuenta? <span onClick={ () => setCurrState("Inicia sesión") }>Inicia sesión aquí</span></p>
         }
