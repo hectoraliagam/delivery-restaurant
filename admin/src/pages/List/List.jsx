@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import './List.css'
-import axios from 'axios'
-import { toast } from 'react-toastify'
+import './List.css';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useEffect, useState } from 'react';
 
 const List = ({ url }) => {
 
@@ -27,10 +27,10 @@ const List = ({ url }) => {
       }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
       fetchList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }, [])
 
   return (
     <div className='list add flex-col'>
@@ -43,20 +43,20 @@ const List = ({ url }) => {
           <b>Precio</b>
           <b>Eliminar</b>
         </div>
-        {list.map((item, index) => {
+        { list.map((item, index) => {
           return (
-            <div key={index} className='list-table-format'>
-              <img src={`${url}/images/` + item.image} alt="" />
-              <p>{item.name}</p>
-              <p>{item.category}</p>
-              <p>{item.price}</p>
-              <p onClick={()=>removeFood(item._id)} className='cursor'>X</p>
+            <div key={ index } className='list-table-format'>
+              <img src={ `${ url }/images/` + item.image } alt="" />
+              <p>{ item.name }</p>
+              <p>{ item.category }</p>
+              <p>{ item.price }</p>
+              <p onClick={ () => removeFood(item._id) } className='cursor'>X</p>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 
-export default List
+export default List;

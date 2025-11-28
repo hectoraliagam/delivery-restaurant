@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Cart from './pages/Cart/Cart';
-import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/NavBar/Navbar';
-import LoginPopup from './components/LoginPopup/LoginPopup';
 import Footer from './components/Footer/Footer';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import LoginPopup from './components/LoginPopup/LoginPopup';
 
 const App = () => {
 
-    const [showLogin, setShowLogin] = useState(false);
     const fee = 7;
-
+    const [showLogin, setShowLogin] = useState(false);
+    
   return (
     <>
     { showLogin ? <LoginPopup setShowLogin={ setShowLogin } /> : <></> }

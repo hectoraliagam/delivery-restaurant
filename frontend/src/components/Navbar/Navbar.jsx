@@ -1,8 +1,8 @@
 import './Navbar.css';
-import { Link, useNavigate } from 'react-router-dom';
 import { assets } from '../../assets/assets';
 import { useContext, useState } from 'react';
-import { StoreContext } from '../../context/StoreContext';
+import { Link, useNavigate } from 'react-router-dom';
+import StoreContext from '../../context/StoreContext';
 
 const Navbar = ({ setShowLogin }) => {
 
