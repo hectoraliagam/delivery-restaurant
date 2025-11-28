@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { food_list } from "../assets/assets";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -32,6 +32,13 @@ const StoreContextProvider = (props) => {
     }
     return totalAmount;
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setToken(localStorage.getItem("token"));
+    }
+  }, []);
 
   const contextValue = {
     food_list,
