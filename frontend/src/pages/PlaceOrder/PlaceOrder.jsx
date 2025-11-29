@@ -90,17 +90,17 @@ const PlaceOrder = ({ fee }) => {
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>${ getTotalCartAmount() }</p>
+              <p>S/{ getTotalCartAmount() }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <p>Cargo por envío</p>
-              <p>${ getTotalCartAmount() === 0 ? 0 : fee }</p>
+              <p>S/{ getTotalCartAmount() === 0 ? 0 : fee }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${ getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + fee }</b>
+              <b>S/{ getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + fee }</b>
             </div>
           </div>
           <button type='submit'>PROCEDER AL PAGO</button>

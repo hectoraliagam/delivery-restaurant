@@ -30,10 +30,10 @@ const Cart = ({ fee }) => {
                 <div className="cart-items-title cart-items-item">
                   <img src={ url + "/images/" + item.image } alt="" />
                   <p>{ item.name }</p>
-                  <p>${ item.price }</p>
+                  <p>S/{ item.price }</p>
                   <p>{ cartItems[item._id] }</p>
-                  <p>${ item.price * cartItems[item._id] }</p>
-                  <p onClick={ () => removeFromCart(item._id) } className='cross'>x</p>
+                  <p>S/{ item.price * cartItems[item._id] }</p>
+                  <p onClick={ () => removeFromCart(item._id) } className='cross'>X</p>
                 </div>
                 <hr />
               </div>
@@ -48,17 +48,17 @@ const Cart = ({ fee }) => {
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>${ getTotalCartAmount() }</p>
+              <p>S/{ getTotalCartAmount() }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <p>Cargo por envío</p>
-              <p>${ getTotalCartAmount() === 0 ? 0 : fee }</p>
+              <p>S/{ getTotalCartAmount() === 0 ? 0 : fee }</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${ getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + fee }</b>
+              <b>S/{ getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + fee }</b>
             </div>
           </div>
           <button onClick={ () => navigate('/order') }>PROCEDER CON LA COMPRA</button>

@@ -24,7 +24,7 @@ const MyOrders = () => {
 
   return (
     <div className='my-orders'>
-      <h2>My Orders</h2>
+      <h2>Mis pedidos</h2>
       <div className="container">
         { data.map((order, index) => {
           return (
@@ -37,10 +37,10 @@ const MyOrders = () => {
                   return item.name + " x " + item.quantity + ", ";
                 }
               }) }</p>
-              <p>${ order.amount }</p>
-              <p>Items: { order.items.length }</p>
+              <p>S/{ order.amount }</p>
+              <p>Productos : { order.items.length }</p>
               <p><span>&#x25cf;</span> <b>{ order.status }</b></p>
-              <button>Track Order</button>
+              <button>Seguir pedido</button>
             </div>
           );
         }) }

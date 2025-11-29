@@ -38,7 +38,6 @@ const placeOrder = async (req, res) => {
           pending: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`
         },
         
-        auto_return: "approved",
         external_reference: String(newOrder._id)
       }
     });
