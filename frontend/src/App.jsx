@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Cart from './pages/Cart/Cart';
-import { Route, Routes } from 'react-router-dom';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import Verify from './pages/Verify/Verify';
+import MyOrders from './pages/MyOrders/MyOrders';
 import Navbar from './components/NavBar/Navbar';
 import Footer from './components/Footer/Footer';
-import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import LoginPopup from './components/LoginPopup/LoginPopup';
-import Verify from './pages/Verify/Verify';
+
 
 const App = () => {
 
@@ -22,7 +24,8 @@ const App = () => {
           <Route path='/' element={ <Home /> } />
           <Route path='/cart' element={ <Cart fee={ fee } /> } />
           <Route path='/order' element={ <PlaceOrder fee={ fee } /> } />
-          < Route path='/verify' element={ <Verify /> } />
+          <Route path='/verify' element={ <Verify /> } />
+          <Route path='my-orders' element={ <MyOrders />} />
         </Routes>
       </div>
       <Footer />
