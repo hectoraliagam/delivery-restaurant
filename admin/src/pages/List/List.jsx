@@ -34,7 +34,7 @@ const List = ({ url }) => {
 
   return (
     <div className='list add flex-col'>
-      <p>Lista de todos los platillos</p>
+      <p>Lista de todos los productos</p>
       <div className="list-table">
         <div className="list-table-format title">
           <b>Imagen</b>
@@ -49,7 +49,7 @@ const List = ({ url }) => {
               <img src={ `${ url }/images/` + item.image } alt="" />
               <p>{ item.name }</p>
               <p>{ item.category }</p>
-              <p>{ item.price }</p>
+              <p>${ item.price }</p>
               <p onClick={ () => removeFood(item._id) } className='cursor'>X</p>
             </div>
           );
