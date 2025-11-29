@@ -1,7 +1,7 @@
 import './PlaceOrder.css';
+import axios from 'axios';
 import { useContext, useState } from 'react';
 import StoreContext from '../../context/StoreContext';
-import axios from 'axios';
 
 const PlaceOrder = ({ fee }) => {
 

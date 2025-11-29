@@ -6,6 +6,7 @@ import Navbar from './components/NavBar/Navbar';
 import Footer from './components/Footer/Footer';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import LoginPopup from './components/LoginPopup/LoginPopup';
+import Verify from './pages/Verify/Verify';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/' element={ <Home /> } />
           <Route path='/cart' element={ <Cart fee={ fee } /> } />
           <Route path='/order' element={ <PlaceOrder fee={ fee } /> } />
+          < Route path='/verify' element={ <Verify /> } />
         </Routes>
       </div>
       <Footer />
