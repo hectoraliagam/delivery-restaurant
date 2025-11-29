@@ -8,25 +8,24 @@ const client = new MercadoPagoConfig({
 
 // placing user order for frontend
 const placeOrder = async (req, res) => {
-
   const frontend_url = "http://localhost:5173";
 
   try {
+    const { items, amount, address } = req.body;
     const newOrder = new orderModel({
-      userId: req.body.userId,
-      items: req.body.items,
-      amount: req.body.amount,
-      address: req.body.address
+      userId: req.userId,
+      items,
+      amount,
+      address,
     });
 
     await newOrder.save();
-    await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
+    await userModel.findByIdAndUpdate(req.userId, { cartData: {} });
 
     const preference = new Preference(client);
-    
     const response = await preference.create({
       body: {
-        items: req.body.items.map((item) => ({
+        items: items.map((item) => ({
           title: item.name,
           quantity: item.quantity,
           unit_price: item.price,
