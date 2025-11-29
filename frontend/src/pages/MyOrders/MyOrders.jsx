@@ -40,7 +40,7 @@ const MyOrders = () => {
               <p>S/{ order.amount }</p>
               <p>Productos : { order.items.length }</p>
               <p><span>&#x25cf;</span> <b>{ order.status }</b></p>
-              <button>Seguir pedido</button>
+              <button onClick={fetchOrders}>Seguir pedido</button>
             </div>
           );
         }) }

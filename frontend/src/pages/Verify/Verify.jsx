@@ -8,14 +8,16 @@ const Verify = () => {
 
     // eslint-disable-next-line no-unused-vars
     const [searchParams, setSearchParams] = useSearchParams();
-    // eslint-disable-next-line no-unused-vars
     const success = searchParams.get("success");
     const orderId = searchParams.get("orderId");
     const { url } = useContext(StoreContext);
     const navigate = useNavigate();
 
     const verifyPayment = async () => {
-      const response = await axios.post(url + "/api/order/verify", { success: orderId });
+      const response = await axios.post(url + "/api/order/verify", {
+        success,
+        orderId,
+      });
       if (response.data.success) {
         navigate("/myorders");
       } else {

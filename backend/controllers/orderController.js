@@ -8,7 +8,7 @@ const client = new MercadoPagoConfig({
 
 // placing user order for frontend
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5173";
+  const frontend_url = "http://localhost:5174";
 
   try {
     const { items, amount, address } = req.body;
@@ -37,7 +37,8 @@ const placeOrder = async (req, res) => {
           failure: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
           pending: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`
         },
-        
+
+        // auto_return: "approved",
         external_reference: String(newOrder._id)
       }
     });
